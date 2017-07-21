@@ -3,7 +3,7 @@
 import java.io.*;
 import java.util.*;
 
-class paranthesis
+class main
 {
     public static boolean paranthesis_checker(String s)
     {
@@ -11,28 +11,32 @@ class paranthesis
         Stack<Character> st = new Stack<Character>();
         for(int i=0;i<s.length();i++)
         {
-            if(ch[i]=='{' || ch[i]=='(' || ch[i]=='[')
+            if(ch[i] == '{' || ch[i] == '(' || ch[i] == '[')
             {
                 st.push(new Character(ch[i]));
             }
-            else if(ch[i]=='}' || ch[i]==')' || ch[i]==']')
+            else if(ch[i] == '}' || ch[i] == ')' || ch[i] == ']')
             {
-                char ch1 = (Character)st.pop();
-                if(ch[i] == '}') 
+                char ch1 = ' ';
+                if(st.isEmpty() != true)
+                    ch1 = (Character)st.pop();
+                else
+                    return false;
+                if(ch[i] == '}')
                 {
                     if(ch1 != '{')
                     {
                         return false;
                     }
                 }
-                else if(ch[i] == ')') 
+                if(ch[i] == ')')
                 {
                     if(ch1 != '(')
                     {
                         return false;
                     }
                 }
-                else if(ch[i] == ']') 
+                if(ch[i] == ']')
                 {
                     if(ch1 != '[')
                     {
@@ -41,12 +45,30 @@ class paranthesis
                 }
             }
         }
-        return true;
+    return true;
     }
+    
     public static void main(String args[])
     {
-        String s = "{([(}])}";
-        boolean a = paranthesis_checker(s);
-        System.out.println(a);
+        Scanner scan = new Scanner(System.in);
+        int num = scan.nextInt();
+        for(int i=0;i<num;i++)
+        {
+            String s = scan.next();
+            //System.out.println(s);
+            if(s.length()==0)
+            {
+                System.out.println("balanced");   
+            }
+            boolean a = paranthesis_checker(s);
+            if(a == true)
+            {
+                System.out.println("balanced");
+            }
+            else
+            {
+                System.out.println("not balanced");
+            }
+        }
     }
 }
