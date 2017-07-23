@@ -23,11 +23,6 @@ class GFG
                 s = swap(s,left,i);
             }
         }
-        String[] strArray = new String[str_list.size()];
-        for( int j = 0; j < strArray.length; j++ )
-        {
-            strArray[ j ] = str_list.get( j ).toString();
-        }
     }
     public static String swap(String s, int l, int r)
     {
