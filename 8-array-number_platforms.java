@@ -7,16 +7,6 @@ import java.io.*;
 import java.util.*;
 import java.util.Arrays;
 
-class Node
-{
-    int time;
-    char type;
-    public Node(int time, char type)
-    {
-        this.time = time;
-        this.type = type;
-    }
-}
 class GFG 
 {
     public static int check_platforms(int[] ar_list, int[] dep_list)
